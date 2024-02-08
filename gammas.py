@@ -364,11 +364,11 @@ class Gamma:
         flip = str(merged_df['Flip'].iloc[-1])
         
         plt.axhline(y=closest_index, color='black', linestyle='--', label='Price')
-        plt.text(plot_range[0], str(closest_index), f'Price: {price}', verticalalignment='bottom', horizontalalignment='right')
+        plt.text(range_max * -0.8, str(closest_index), f'Price: {price}', verticalalignment='bottom')
 
         plt.axhline(y=flip, color='red', linestyle='--', label='GEX Flip')
 
-        plt.text(range_max * -1, flip, f'GEX FLIP: {flip}', verticalalignment='bottom', horizontalalignment='right')
+        plt.text(range_max * -0.8, flip, f'GEX FLIP: {flip}', verticalalignment='bottom')
 
 
         put_wall = merged_df['PutGEX'].idxmin()
@@ -377,11 +377,11 @@ class Gamma:
         if put_wall != call_wall:
             plt.axhline(y=str(put_wall), color='purple', linestyle='--', label='Put Wall')
             plt.axhline(y=str(call_wall), color='green', linestyle='--', label='Call Wall')
-            plt.text(range_max * -1, str(put_wall), f'Put Wall: {put_wall}', verticalalignment='bottom', horizontalalignment='right')
-            plt.text(range_max * -1, str(call_wall), f'Call Wall: {call_wall}', verticalalignment='bottom', horizontalalignment='right')
+            plt.text(range_max * -0.8, str(put_wall), f'Put Wall: {put_wall}', verticalalignment='bottom')
+            plt.text(range_max * -0.8, str(call_wall), f'Call Wall: {call_wall}', verticalalignment='bottom')
         else:
             plt.axhline(y=str(put_wall), color='blue', linestyle='--', label='GAMMA Wall')
-            plt.text(range_max*-1, str(put_wall), f'Gamma Wall: {put_wall}', verticalalignment='bottom')
+            plt.text(range_max * -0.8, str(put_wall), f'Gamma Wall: {put_wall}', verticalalignment='bottom')
 
         # Other plot configurations...
         
@@ -433,11 +433,11 @@ class Gamma:
         flip = str(merged_df['Flip'].iloc[-1])
         
         plt.axhline(y=closest_index, color='black', linestyle='--', label='Price')
-        plt.text(plot_range[0], str(closest_index), f'Price: {price}', verticalalignment='bottom', horizontalalignment='right')
+        plt.text(range_max * -0.8, str(closest_index), f'Price: {price}', verticalalignment='bottom')
 
         plt.axhline(y=flip, color='red', linestyle='--', label='GEX Flip')
 
-        plt.text(range_max * -1, flip, f'GEX FLIP: {flip}', verticalalignment='bottom', horizontalalignment='right')
+        plt.text(range_max * -0.8, flip, f'GEX FLIP: {flip}', verticalalignment='bottom')
 
 
         put_wall = merged_df['PutGEX'].idxmin()
@@ -446,11 +446,11 @@ class Gamma:
         if put_wall != call_wall:
             plt.axhline(y=str(put_wall), color='purple', linestyle='--', label='Put Wall')
             plt.axhline(y=str(call_wall), color='green', linestyle='--', label='Call Wall')
-            plt.text(range_max * -1, str(put_wall), f'Put Wall: {put_wall}', verticalalignment='bottom', horizontalalignment='right')
-            plt.text(range_max * -1, str(call_wall), f'Call Wall: {call_wall}', verticalalignment='bottom', horizontalalignment='right')
+            plt.text(range_max * -0.8, str(put_wall), f'Put Wall: {put_wall}', verticalalignment='bottom')
+            plt.text(range_max * -0.8, str(call_wall), f'Call Wall: {call_wall}', verticalalignment='bottom')
         else:
             plt.axhline(y=str(put_wall), color='blue', linestyle='--', label='GAMMA Wall')
-            plt.text(range_max*-1, str(put_wall), f'Gamma Wall: {put_wall}', verticalalignment='bottom')
+            plt.text(range_max*-0.8, str(put_wall), f'Gamma Wall: {put_wall}', verticalalignment='bottom')
 
         # Other plot configurations...
         

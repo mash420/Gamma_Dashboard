@@ -4,12 +4,12 @@ import time
 import threading
 
 # Function to fetch data
-@st.cache_resource
+# @st.cache_resource
 def fetch_data(symbol, days_to_expo):
     spx = Gamma(symbol, int(days_to_expo))
     path_chain, chain, path_vol = spx.get_same_day()  # Fetch data for the same day
     path, gex_df, path_vol_all = spx.get_all_chains()  # Fetch data for all expiration dates
-    return path_chain, path, path_vol, path_vol_all
+    return path_chain,path, path_vol, path_vol_all
 
 # Function to update the data every 5 minutes
 def update_data():
@@ -22,6 +22,9 @@ def display_dashboard():
     symbol = st.sidebar.text_input('Enter Symbol', value='SPX')
     days_to_expo = st.sidebar.text_input('Days to Expiration', value='98')
     submit_button = st.sidebar.button('Submit')
+    refresh_button = st.sidebar.button('Refresh Data')
+
+
 
     if submit_button:
         path_chain, path, path_vol, path_vol_all = fetch_data(symbol, days_to_expo)
@@ -32,20 +35,20 @@ def display_dashboard():
         # Arrange components in two columns of two
         col1, col2 = st.columns(2)
 
-        # Display same day gamma exposure plot and same day volume plot
+        # Display same day gamma exposure  and same day volume 
         with col1:
-            st.subheader('Same Day Gamma Exposure Plot')
+            st.subheader('Same Day Gamma Exposure ')
             st.image(path_chain, use_column_width=True)
 
-            st.subheader('Same Day Volume Plot')
+            st.subheader('Same Day Volume ')
             st.image(path_vol, use_column_width=True)
 
-        # Display 98-day gamma exposure plot and 98-day volume plot
+        # Display 98-day gamma exposure  and 98-day volume 
         with col2:
-            st.subheader(f'{days_to_expo} Day Gamma Exposure Plot')
+            st.subheader(f'{days_to_expo} Day Gamma Exposure ')
             st.image(path, use_column_width=True)
 
-            st.subheader(f'{days_to_expo} Day Volume Plot')
+            st.subheader(f'{days_to_expo} Day Volume ')
             st.image(path_vol_all, use_column_width=True)
 
 # Set page layout to wide mode
